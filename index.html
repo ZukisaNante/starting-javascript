@@ -42,15 +42,18 @@
             </p>
             <hr>
             <br>
-            <label for="greetingsBox">Type your message here: <input type="text" id="greetingsBox" class="form-control"/></label>
+            <label for="greetingsBox">Type your message here: <input type="text" id="greetingsBox" oninput="showMessage()" class="form-control"/></label>
             
             <div class="col-6 mx-auto p-2 greetingsBoxHolder">
-                <h3><!-- Your message comes here--></h3>
+                    <p><input type="text" id="msgBox" placeholder = "Sorry nothing to show!"></p>
             </div>
         </div>
         <script>
-           //here
-
+            // show input results to msgBox 
+           function showMessage() {
+            var greetingsBox = document.getElementById("greetingsBox");
+            document.getElementById("msgBox").value = greetingsBox.value;
+        }
         </script>
     </div>
     <!-- END OF Part 1 -->
@@ -71,27 +74,67 @@
             </p>
             <hr>
             <br>
-            <table id="pizzaOrders" class="table table-striped table-bordered" cellspacing="0" width="100%">
+            <table id="pizzaOrders" class="table table-striped table-bordered" cellspacing="0" width="100%" onclick="addRows()">
                 <thead>
                 <tr>
                     <th>Name</th>
                     <th>Pizza</th>
                     <th>Size</th>
                     <th>Remarks</th>
+                    <th>Delete</th><!--delete a row-->
                 </tr>
                 </thead>
                 <tbody>
-                <tr id="emptyRow">
+                <tr id="emptyRow" onclick="addRows()">
                     <td><input type="text" id="name" class="form-control" placeholder="Fill in your name"></td>
                     <td><input type="text" id="pizza" class="form-control" placeholder="Fill in your pizza choice"></td>
                     <td><input type="text" id="size" class="form-control" placeholder="Fill in your chosen size"></td>
                     <td><input type="text" id="remarks" class="form-control" placeholder="Fill in your remarks"></td>
+                    <td><input type="text" id="deleteR" class="form-control" placeholder="delete"></td>
                 </tr>
                 </tbody>
             </table>
         </div>
         <script>
-            // Write your code here
+            // add rows
+            function addRows(){
+                // input values
+                var name = document.getElementById('name').value;
+                var pizza = document.getElementById('pizza').value;
+                var size = document.getElementById('size').value;
+                var remarks = document.getElementById('remarks').value;
+                var deleteR = document.getElementById('deleteR').value;
+                // get HTML table
+                var table = document.getElementsByTagName('table')[0];
+                //add Row
+                var newRow = table.insertRow(table.rows.length);
+                //defining cells
+                var cell1 = newRow.insertCell(0);
+                var cell2 = newRow.insertCell(1);
+                var cell3 = newRow.insertCell(2);
+                var cell4 = newRow.insertCell(3);
+                var cell5 = newRow.insertCell(4);
+                // HTML output
+                cell1.innerHTML = name;
+                cell2.innerHTML = pizza;
+                cell3.innerHTML = size;
+                cell4.innerHTML = remarks;
+                cell5.innerHTML = deleteR;
+
+            }
+            // delete rows
+            var index, table = document.getElementById('pizzaOrdres');
+            for(var i = 1; i < table.rows.length; i++){
+                table.rows[i].cells[3].onclick = deleteR();
+                    var msg = confirm("delete this?");
+                    if (msg === true){
+                        index = this.parentElement.rowIndex;
+                    table.deleteRow(index);
+                    }
+                   
+                    //console.log(index);
+                };
+            }
            
         </script>
     </div>
