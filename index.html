@@ -81,6 +81,7 @@
                     <th>Pizza</th>
                     <th>Size</th>
                     <th>Remarks</th>
+                    <th>Add</th><!--add a row-->
                     <th>Delete</th><!--delete a row-->
                 </tr>
                 </thead>
@@ -90,7 +91,8 @@
                     <td><input type="text" id="pizza" class="form-control" placeholder="Fill in your pizza choice"></td>
                     <td><input type="text" id="size" class="form-control" placeholder="Fill in your chosen size"></td>
                     <td><input type="text" id="remarks" class="form-control" placeholder="Fill in your remarks"></td>
-                    <td><input type="text" id="deleteR" class="form-control" placeholder="delete"></td>
+                    <td><input type="text" id="deleteR"  onclick="addRow()" class="form-control" placeholder="delete"></td>
+                    <td><input type="text" id="deleteR"  onclick="removeRow()" class="form-control" placeholder="delete"></td>
                 </tr>
                 </tbody>
             </table>
