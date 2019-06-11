@@ -91,52 +91,55 @@
                     <td><input type="text" id="pizza" class="form-control" placeholder="Fill in your pizza choice"></td>
                     <td><input type="text" id="size" class="form-control" placeholder="Fill in your chosen size"></td>
                     <td><input type="text" id="remarks" class="form-control" placeholder="Fill in your remarks"></td>
-                    <td><input type="text" id="deleteR"  onclick="addRow()" class="form-control" placeholder="delete"></td>
-                    <td><input type="text" id="deleteR"  onclick="removeRow()" class="form-control" placeholder="delete"></td>
+                    <td><button id="addR" onclick="addRow()">Insert</button></td>
+                    <td><button id="deleteR"  onclick="removeRow()">Delete</button></td>
                 </tr>
                 </tbody>
             </table>
         </div>
         <script>
             // add rows
-            function addRows(){
+            function addRow(){
                 // input values
-                var name = document.getElementById('name').value;
-                var pizza = document.getElementById('pizza').value;
-                var size = document.getElementById('size').value;
-                var remarks = document.getElementById('remarks').value;
-                var deleteR = document.getElementById('deleteR').value;
+                var table = document.getElementById("pizzaOrders");
+                //var name = document.getElementById('name').value;
+                //var pizza = document.getElementById('pizza').value;
+                //var size = document.getElementById('size').value;
+                //var remarks = document.getElementById('remarks').value;
+                //var deleteR = document.getElementById('deleteR').value;
                 // get HTML table
-                var table = document.getElementById('pizzaOrders')[0];
+                //var table = document.getElementById('pizzaOrders')[0];
                 //add Row
-                var newRow = table.insertRow(table.rows.length);
+                var newRow = table.insertRow(-1);
                 //defining cells
                 var cell1 = newRow.insertCell(0);
                 var cell2 = newRow.insertCell(1);
                 var cell3 = newRow.insertCell(2);
                 var cell4 = newRow.insertCell(3);
                 var cell5 = newRow.insertCell(4);
+                var cell6 = newRow.insertCell(5);
                 // HTML output
                 cell1.innerHTML = name;
                 cell2.innerHTML = pizza;
                 cell3.innerHTML = size;
                 cell4.innerHTML = remarks;
-                cell5.innerHTML = deleteR;
+                cell5.innerHTML = addR;
+                cell6.innerHTML = deleteR;
 
             }
             // delete rows
             var index, table = document.getElementById('pizzaOrdres');
             for(var i = 1; i < table.rows.length; i++){
-                table.rows[i].cells[3].onclick = deleteR();
+                table.rows[i].cells[3].onclick = removeRow();
                     var msg = confirm("delete this?");
                     if (msg === true){
                         index = this.parentElement.rowIndex;
-                    table.deleteRow(index);
+                    table.removeRow(index);
                     }
                    
                     //console.log(index);
                 };
-            }
+            
            
         </script>
     </div>
