@@ -125,9 +125,22 @@
                 cell4.innerHTML = remarks;
                 cell5.innerHTML = addR;
                 cell6.innerHTML = deleteR;
+            
 
+            // new test
+
+            let newRow = table.insertRow(-1);
+let w = newRow.insertCell(0);
+let x = newRow.insertCell(1);
+let y = newRow.insertCell(2);
+let z = newRow.insertCell(3);
+let btn = newRow.insertCell(4);
+w.innerHTML = <input type="text" class="form-control" placeholder="Fill in your name">;
+x.innerHTML = <input type="text" class="form-control" placeholder="Fill in your pizza choice">;
+y.innerHTML = <input type="text" class="form-control" placeholder="Fill in your chosen size">;
+z.innerHTML = <input type="text" class="form-control" placeholder="Fill in your remarks">;
             }
-            // delete rows
+            /* // delete rows
             var index, table = document.getElementById('pizzaOrdres');
             for(var i = 1; i < table.rows.length; i++){
                 table.rows[i].cells[3].onclick = removeRow();
@@ -136,10 +149,12 @@
                         index = this.parentElement.rowIndex;
                     table.removeRow(index);
                     }
-                   
+                    */
                     //console.log(index);
-                };
-            
+               // };
+               function removeRow() {
+                document.getElementById("pizzaOrders").deleteRow(-1);
+               }
            
         </script>
     </div>
