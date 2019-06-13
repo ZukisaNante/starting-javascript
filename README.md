@@ -1,3 +1,5 @@
+https://zukisanante.github.io/starting-javascript/
+
 # starting-javascript
 
 ## Instructions
