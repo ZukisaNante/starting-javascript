@@ -81,17 +81,17 @@
                     <th>Pizza</th>
                     <th>Size</th>
                     <th>Remarks</th>
-                    <th>Add</th><!--add a row-->
-                    <th>Delete</th><!--delete a row-->
+                   <!--  <th>Add</th> --><!--add a row-->
+                     <th>Delete</th> <!--delete a row-->
                 </tr>
                 </thead>
                 <tbody>
                 <tr id="emptyRow">
-                    <td><input type="text" id="name" class="form-control" placeholder="Fill in your name"></td>
-                    <td><input type="text" id="pizza" class="form-control" placeholder="Fill in your pizza choice"></td>
-                    <td><input type="text" id="size" class="form-control" placeholder="Fill in your chosen size"></td>
-                    <td><input type="text" id="remarks" class="form-control" placeholder="Fill in your remarks"></td>
-                    <td><button id="addR" onclick="addRow()">Insert</button></td>
+                    <td><input type="text" id="name" onclick="addRow()" class="form-control" placeholder="Fill in your name"></td>
+                    <td><input type="text" id="pizza" onclick="addRow()" class="form-control" placeholder="Fill in your pizza choice"></td>
+                    <td><input type="text" id="size" onclick="addRow()" class="form-control" placeholder="Fill in your chosen size"></td>
+                    <td><input type="text" id="remarks" onclick="addRow()" class="form-control" placeholder="Fill in your remarks"></td>
+                 <!--    <td><button id="addR" onclick="addRow()">Insert</button></td> -->
                     <td><button id="deleteR"  onclick="removeRow()">Delete</button></td>
                 </tr>
                 </tbody>
@@ -102,56 +102,40 @@
             function addRow(){
                 // input values
                 var table = document.getElementById("pizzaOrders");
-                //var name = document.getElementById('name').value;
-                //var pizza = document.getElementById('pizza').value;
-                //var size = document.getElementById('size').value;
-                //var remarks = document.getElementById('remarks').value;
-                //var deleteR = document.getElementById('deleteR').value;
-                // get HTML table
-                //var table = document.getElementById('pizzaOrders')[0];
+               /* var name = document.getElementById('name').value;
+                var pizza = document.getElementById('pizza').value;
+                var size = document.getElementById('size').value;
+                var remarks = document.getElementById('remarks').value; */
+                /* var deleteR = document.getElementById('deleteR').value; */
+                /* var table = document.getElementById('pizzaOrders')[0];  */
                 //add Row
                 var newRow = table.insertRow(-1);
                 //defining cells
-                var cell1 = newRow.insertCell(0);
-                var cell2 = newRow.insertCell(1);
-                var cell3 = newRow.insertCell(2);
-                var cell4 = newRow.insertCell(3);
-                var cell5 = newRow.insertCell(4);
-                var cell6 = newRow.insertCell(5);
+                let cell1 = newRow.insertCell(0);
+                let cell2 = newRow.insertCell(1);
+                let cell3 = newRow.insertCell(2);
+                let cell4 = newRow.insertCell(3);
+                let btn = newRow.insertCell(4);
+                
                 // HTML output
-                cell1.innerHTML = name;
-                cell2.innerHTML = pizza;
-                cell3.innerHTML = size;
-                cell4.innerHTML = remarks;
-                cell5.innerHTML = addR;
-                cell6.innerHTML = deleteR;
-            
+                cell1.innerHTML = '<input type="text" class="form-control" placeholder="Fill in your name">';
+                cell2.innerHTML = '<input type="text" class="form-control" placeholder="Fill in your pizza choice">';
+                cell3.innerHTML = '<input type="text" class="form-control" placeholder="Fill in your chosen size">';
+                cell4.innerHTML = '<input type="text" class="form-control" placeholder="Fill in your remarks">';
+                btn.innerHTML = '<button id="deleteR"  onclick="removeRow()">Delete</button>';
+                
 
-            // new test
-
-            let newRow = table.insertRow(-1);
-let w = newRow.insertCell(0);
-let x = newRow.insertCell(1);
-let y = newRow.insertCell(2);
-let z = newRow.insertCell(3);
-let btn = newRow.insertCell(4);
-w.innerHTML = <input type="text" class="form-control" placeholder="Fill in your name">;
-x.innerHTML = <input type="text" class="form-control" placeholder="Fill in your pizza choice">;
-y.innerHTML = <input type="text" class="form-control" placeholder="Fill in your chosen size">;
-z.innerHTML = <input type="text" class="form-control" placeholder="Fill in your remarks">;
             }
-            /* // delete rows
+             // delete rows
             var index, table = document.getElementById('pizzaOrdres');
             for(var i = 1; i < table.rows.length; i++){
-                table.rows[i].cells[3].onclick = removeRow();
+                table.rows[i].cells[4].onclick = removeRow();
                     var msg = confirm("delete this?");
                     if (msg === true){
                         index = this.parentElement.rowIndex;
                     table.removeRow(index);
                     }
-                    */
-                    //console.log(index);
-               // };
+                };
                function removeRow() {
                 document.getElementById("pizzaOrders").deleteRow(-1);
                }
