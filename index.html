@@ -116,15 +116,35 @@
                 let cell3 = newRow.insertCell(2);
                 let cell4 = newRow.insertCell(3);
                 let btn = newRow.insertCell(4);
-                
+                //validating input
+                if (document.getElementById('name').value == '' ){
+                    alert('Please fill in the ruquired information!');
+                }else if (document.getElementById('name').value == true){
+                    cell1.innerHTML = '<input type="text" class="form-control" placeholder="Fill in your name">';  
+                   
+                }
+                if (pizza == ''){
+                    alert('Please fill in the ruquired information!');
+                }else if (pizza == true){
+                    cell2.innerHTML = '<input type="text" class="form-control" placeholder="Fill in your pizza choice">';  
+                }
+                if (size == ''){
+                    alert('Please fill in the ruquired information!');
+                }else if (size == true){
+                    cell3.innerHTML = '<input type="text" class="form-control" placeholder="Fill in your chosen size">';
+                }
+                if (remarks == ''){
+                    alert('Please fill in the ruquired information!');
+                }else if (remarks == true){
+                    cell4.innerHTML = '<input type="text" class="form-control" placeholder="Fill in your remarks">';
+                }
                 // HTML output
-                cell1.innerHTML = '<input type="text" class="form-control" placeholder="Fill in your name">';
+                 cell1.innerHTML = '<input type="text" class="form-control" placeholder="Fill in your name">';
                 cell2.innerHTML = '<input type="text" class="form-control" placeholder="Fill in your pizza choice">';
                 cell3.innerHTML = '<input type="text" class="form-control" placeholder="Fill in your chosen size">';
-                cell4.innerHTML = '<input type="text" class="form-control" placeholder="Fill in your remarks">';
+                cell4.innerHTML = '<input type="text" class="form-control" placeholder="Fill in your remarks">'; 
                 btn.innerHTML = '<button id="deleteR"  onclick="removeRow()">Delete</button>';
                 
-
             }
              // delete rows
             var index, table = document.getElementById('pizzaOrdres');
